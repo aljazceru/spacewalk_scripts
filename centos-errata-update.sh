@@ -16,12 +16,7 @@ cd /opt/ya-errata-import
 wget -N http://cefs.steve-meier.de/errata.latest.xml
 ERRATA=/opt/ya-errata-import/errata.latest.xml
 
-# update errata for channels (could be all at once but this looks more transparent
-/opt/ya-errata-import/errata-import.pl --errata=$ERRATA_XML --server $SPACEWALK --publish --include-channels --debug --security centos5-updates-i386-repo
-/opt/ya-errata-import/errata-import.pl --errata=$ERRATA_XML --server $SPACEWALK --publish --include-channels --debug --security centos5-base-i386-repo
-/opt/ya-errata-import/errata-import.pl --errata=$ERRATA_XML --server $SPACEWALK --publish --include-channels --debug --security centos5-base-x86_64-repo
-/opt/ya-errata-import/errata-import.pl --errata=$ERRATA_XML --server $SPACEWALK --publish --include-channels --debug --security centos5-updates-x86_64-repo
-/opt/ya-errata-import/errata-import.pl --errata=$ERRATA_XML --server $SPACEWALK --publish --include-channels --debug --security centos6-base-x86_64-repo
-/opt/ya-errata-import/errata-import.pl --errata=$ERRATA_XML --server $SPACEWALK --publish --include-channels --debug --security centos6-updates-x86_64-repo
-/opt/ya-errata-import/errata-import.pl --errata=$ERRATA_XML --server $SPACEWALK --publish --include-channels --debug --security centos7-updates-x86_64-repo
-/opt/ya-errata-import/errata-import.pl --errata=$ERRATA_XML --server $SPACEWALK --publish --include-channels --debug --security centos7-base-x86_64-repo
+# update errata for channels (all channels could be in one line separated with commas but if you have many chans its more transparent this way
+
+/opt/ya-errata-import/errata-import.pl --errata=$ERRATA_XML --server $SPACEWALK --publish  --debug --security --include-channels <insert your channel label>
+/opt/ya-errata-import/errata-import.pl --errata=$ERRATA_XML --server $SPACEWALK --publish  --debug --security --include-channels <insert your channel label>
